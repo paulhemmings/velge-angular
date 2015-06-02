@@ -9,7 +9,7 @@
 angular.module('VelgeAngularJS')
   .directive('velge', function ($document, $compile) {
     return {
-      template: '<div class="velge"></div>',
+      template: '<div class="velge-container"></div>',
       restrict: 'EA',
       transclude: true,
       replace: true,
