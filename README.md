@@ -3,8 +3,6 @@
 This is a simple AngularJS directive wrapper for the tag management library Velge
 http://dscout.github.io/velge/
 
-This is a work in progress, and not yet ready for use.
-
 # Installation
 
 Currently you'll need to clone the repo, and build:
@@ -29,9 +27,21 @@ angular.module('MyApp', ['VelgeAngularJS'])
 The directive can then be added straight to your HTML:
 
 ```html
-<velge></velge>
+<velge choices="{{velgeChoices}}"></velge>
 ```
 
-# To Come
+Setting the options can then be done inside the controller:
 
-Add ability to add/remove options from controller.
+```html
+angular.module('MyApp')
+.controller('DeveloperController', ['$scope', function($scope) {
+  function initialize() {
+    $scope.velgeChoices = [
+        { name: 'orange' },
+        { name: 'berry' },
+        { name: 'tangy' }
+    ];
+  }
+  initialize();
+}]);
+```
