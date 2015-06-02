@@ -35,8 +35,8 @@ describe('Directive: velge', function () {
     expect(element).not.toBeUndefined();
   });
 
-  it('should have a class of velge-container when it compiles', function(){
-    expect((element[0]).className).toContain('velge-container');
+  it('should have a class of velge when it compiles', function(){
+    expect((element[0]).className).toContain('velge');
   });
 
   describe('Rendering the controller with choices', function() {

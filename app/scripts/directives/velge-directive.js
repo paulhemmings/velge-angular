@@ -9,16 +9,21 @@
 angular.module('VelgeAngularJS')
   .directive('velge', function ($document, $compile) {
     return {
-      template: '<div class="velge-container"><div ng-transclude></div></div>',
+      template: '<div class="velge"></div>',
       restrict: 'EA',
       transclude: true,
       replace: true,
 
       controller: function($scope, $element, $attrs) {
 
-        $scope.velge = this.velge = new Velge($element, {
+        $scope.velge = this.velge = new Velge($element[0], {
           placeholder: 'Choose'
         });
+
+        this.velge
+          .addChoice({ name: 'orange' })
+          .addChoice({ name: 'berry' })
+          .addChoice({ name: 'tangy' });
 
       }
     };
