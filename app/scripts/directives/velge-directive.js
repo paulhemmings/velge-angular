@@ -16,9 +16,11 @@ angular.module('VelgeAngularJS')
 
       controller: function($scope, $element, $attrs) {
 
-        $scope.velge = this.velge = new Velge($element[0], {
+        $scope.velge = this.velge = new Velge($element, {
           placeholder: 'Choose'
         });
+
+        this.velge.setup();
 
         this.velge
           .addChoice({ name: 'orange' })
