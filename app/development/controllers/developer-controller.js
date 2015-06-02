@@ -3,7 +3,11 @@ angular
     .controller('DeveloperController', ['$scope', function($scope) {
 
       function initialize() {
-        // set up the controller
+        $scope.velgeChoices = [
+            { name: 'orange' },
+            { name: 'berry' },
+            { name: 'tangy' }
+        ];
       }
       initialize();
 

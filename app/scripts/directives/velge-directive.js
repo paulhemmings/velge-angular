@@ -7,7 +7,7 @@
  * # velge
  */
 angular.module('VelgeAngularJS')
-  .directive('velge', function ($document, $compile) {
+  .directive('velge', ['$parse', function ($parse) {
     return {
       template: '<div class="velge-container"></div>',
       restrict: 'EA',
@@ -22,11 +22,16 @@ angular.module('VelgeAngularJS')
 
         this.velge.setup();
 
-        this.velge
-          .addChoice({ name: 'orange' })
-          .addChoice({ name: 'berry' })
-          .addChoice({ name: 'tangy' });
+        $attrs.$observe("choices", function(target,o) {
+            var choices = $parse($attrs.choices);
+            $scope.velge.setOptions([]);
+            choices().map(function(choice) {
+                $scope.velge.addChoice(choice);
+            });
+        });
 
       }
+
+
     };
-  });
+  }]);
